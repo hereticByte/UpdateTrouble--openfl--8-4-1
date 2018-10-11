@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+	
+	<meta title="debugging" package="com.sample.debugging" version="1.0.0" company="Company Name" />
+	<app main="Main" path="Export" file="debugging" />
+
+	<window background="#336633" fps="60"/>
+	<window width="500" height="500" unless="mobile"/>
+
+	<source path="src" />
+
+	<haxelib name="openfl"/>
+	<haxelib name="advanced-layout" />
+
+
+	<assets path="Assets" rename="assets" />
+
+	<!-- Show the console -->
+	<set name="SHOW_CONSOLE" value="1" />
+
+	<!-- Debugger -->
+
+	<haxelib name="hxcpp" if="cpp"/>
+	<haxelib name="hxcpp-debugger" if="debug cpp"/>
+
+	<haxedef name="HXCPP_DEBUG" if="debug" />
+	<haxedef name="great" if="debug" />
+	<haxedef name="HXCPP_DEBUGGER" value="1" if="debug" />
+	<haxedef name="HXCPP_CHECK_POINTER" if="debug" />  <!--makes null references cause errors-->
+	<haxedef name="HXCPP_STACK_VARS" if="debug" />    <!--if you want stack variables-->
+	<haxedef name="HXCPP_STACK_LINE" if="debug" />    <!--if you want line numbers-->
+	<haxedef name="HXCPP_STACK_TRACE" if="debug" />    <!--if you want stack traces-->
+
+
+<!--
+	// https://community.haxe.org/t/suitable-workflow-for-debugging-c-within-intellij/578
+	// Important:
+	// You have to have the hxcpp haxelib installed and built using the instructions in the hxcpp library root directory.
+
+	Projectstructure:
+
+	Module
+	Haxe
+
+	Compile with:
+	OpenFL
+
+	Target:
+	Windows
+
+	Project Macros:
+	HXCPP_DEBUGGER
+	debug
+	cpp
+	Ddbug
+
+	OpenFl arguments:
+	&#45;&#45; none &#45;&#45;
+
+	OpenFL Project XML:
+	&#45;&#45; path to project.xml -&#45;&#45;
+
+	Automaticall synchronize dependencies and settings:
+	true
+
+	Skip compilation
+	false
+
+	Flex SDK for Flash applications debugging
+	[Invalid]
+
+
+	Debugger
+	Edit configuration:
+	Debugger Listener Port: 6972
+
+
+	Todo: HINT
+	Use the version 1.1.0 of the hxpp-debugger ( although it's  not the current one )!
+	-->
+
+
+
+
+
+
+
+</project>
